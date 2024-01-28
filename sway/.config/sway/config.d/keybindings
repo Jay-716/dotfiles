@@ -1,0 +1,55 @@
+#gaps inner 2
+
+exec fcitx5
+exec "sleep 2 && udiskie -Ans"
+exec "sleep 3 && copyq --start-server"
+exec kanshi
+exec mako
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec nm-applet
+exec "sleep 2 && blueman-applet"
+
+bindsym $mod+Shift+Escape exec "sleep 3 && pkill -USR1 swayidle"
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+g exec "firefox --private-window"
+
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
+bindsym --release --no-repeat XF86AudioMute exec "amixer set Master toggle"
+bindsym --release --no-repeat XF86AudioMicMute exec "amixer -c 0 cset name='Dmic0 Capture Switch' toggle"
+#bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
+#bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+#bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+#bindsym XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioNext exec "playerctl next"
+bindsym XF86AudioPrev exec "playerctl previous"
+bindsym $mod+Shift+r "echo test >> /tmp/sound && ~/Programs/scripts/fix-broken-sound.sh"
+
+bindsym Print exec "grim ~/Pictures/screenshots/$(date '+%F_%T').png"
+bindsym Ctrl+Shift+Print exec "slurp | grim -g - - | tee ~/Pictures/screenshots/$(date '+%F_%T').png | wl-copy --type image/png"
+bindsym Shift+Print exec "slurp | grim -g - - | wl-copy --type image/png"
+bindsym Ctrl+Print exec "slurp | grim -g - ~/Pictures/screenshots/$(date '+%F_%T').png"
+
+bindsym XF86MonBrightnessUp exec "light -A 5"
+bindsym XF86MonBrightnessDown exec "light -U 5"
+
+bindsym $mod+e exec thunar
+
+bindsym $mod+Escape exec wlogout
+
+for_window [class="steam"] floating enable
+for_window [app_id="org.telegram.desktop"] floating enable
+for_window [app_id="com.github.hluk.copyq"] floating enable
+for_window [app_id="org.kde.kdeconnect.handler"] floating enable
+for_window [app_id="org.kde.kcalc"] floating enable
+
+# Firefox picture-in-picture
+for_window [title="Picture-in-Picture"] floating enable
+
+# Thunar file operation dialogs
+for_window [title="File Operation Progress"] floating enable
+for_window [title="Confirm to replace files"] floating enable
+
+# Ark show dialogs with file names in their titles
+for_window [app_id="org.kde.ark"] floating enable
