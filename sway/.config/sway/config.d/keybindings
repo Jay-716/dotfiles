@@ -1,4 +1,27 @@
 #gaps inner 2
+#smart_borders on
+#hide_edge_borders --i3 smart
+
+# Move your focus around
+bindsym Ctrl+$mod+$left focus output left
+bindsym Ctrl+$mod+$down focus output down
+bindsym Ctrl+$mod+$up focus output up
+bindsym Ctrl+$mod+$right focus output right
+# Or use $mod+[up|down|left|right]
+bindsym Ctrl+$mod+Left focus output left
+bindsym Ctrl+$mod+Down focus output down
+bindsym Ctrl+$mod+Up focus output up
+bindsym Ctrl+$mod+Right focus output right
+# Move the focused window with the same, but add Shift
+bindsym Ctrl+$mod+Shift+$left move output left
+bindsym Ctrl+$mod+Shift+$down move output down
+bindsym Ctrl+$mod+Shift+$up move output up
+bindsym Ctrl+$mod+Shift+$right move output right
+# Ditto, with arrow keys
+bindsym Ctrl+$mod+Shift+Left move output left
+bindsym Ctrl+$mod+Shift+Down move output down
+bindsym Ctrl+$mod+Shift+Up move output up
+bindsym Ctrl+$mod+Shift+Right move output right
 
 exec fcitx5
 exec "sleep 2 && udiskie -Ans"
@@ -8,10 +31,12 @@ exec mako
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet
 exec "sleep 2 && blueman-applet"
+exec "sleep 3 && variety"
+exec "sleep 3 && kdeconnect-indicator"
 
-bindsym $mod+Shift+Escape exec "sleep 3 && pkill -USR1 swayidle"
-bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+g exec "firefox --private-window"
+bindsym --no-repeat $mod+Shift+Escape exec "sleep 3 && pkill -USR1 swayidle"
+bindsym --no-repeat $mod+Shift+f exec "sd-run-app firefox"
+bindsym --no-repeat $mod+Shift+g exec "sd-run-app firefox --private-window"
 
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
@@ -21,35 +46,49 @@ bindsym --release --no-repeat XF86AudioMicMute exec "amixer -c 0 cset name='Dmic
 #bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
 #bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 #bindsym XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-bindsym XF86AudioPlay exec "playerctl play-pause"
-bindsym XF86AudioNext exec "playerctl next"
-bindsym XF86AudioPrev exec "playerctl previous"
-bindsym $mod+Shift+r "echo test >> /tmp/sound && ~/Programs/scripts/fix-broken-sound.sh"
+bindsym --no-repeat XF86AudioPlay exec "playerctl play-pause"
+bindsym --no-repeat XF86AudioNext exec "playerctl next"
+bindsym --no-repeat XF86AudioPrev exec "playerctl previous"
+bindsym --no-repeat $mod+Shift+r /home/jay/.local/bin/fix-broken-sound
 
-bindsym Print exec "grim ~/Pictures/screenshots/$(date '+%F_%T').png"
-bindsym Ctrl+Shift+Print exec "slurp | grim -g - - | tee ~/Pictures/screenshots/$(date '+%F_%T').png | wl-copy --type image/png"
-bindsym Shift+Print exec "slurp | grim -g - - | wl-copy --type image/png"
-bindsym Ctrl+Print exec "slurp | grim -g - ~/Pictures/screenshots/$(date '+%F_%T').png"
+# Ctrl - save
+# Shift - copy
+bindsym --no-repeat Print exec "grim ~/Pictures/screenshots/$(date '+%F_%T').png"
+bindsym --no-repeat Ctrl+Shift+Print exec "slurp | grim -g - - | tee ~/Pictures/screenshots/$(date '+%F_%T').png | wl-copy --type image/png"
+bindsym --no-repeat Shift+Print exec "slurp | grim -g - - | wl-copy --type image/png"
+bindsym --no-repeat Ctrl+Print exec "slurp | grim -g - ~/Pictures/screenshots/$(date '+%F_%T').png"
 
 bindsym XF86MonBrightnessUp exec "light -A 5"
 bindsym XF86MonBrightnessDown exec "light -U 5"
 
-bindsym $mod+e exec thunar
+bindsym --no-repeat $mod+e exec thunar
 
-bindsym $mod+Escape exec wlogout
+bindsym --no-repeat $mod+Escape exec wlogout
 
-for_window [class="steam"] floating enable
-for_window [app_id="org.telegram.desktop"] floating enable
+for_window [class="^[Ss]team$"] floating enable
+for_window [title="^[Ss]team$"] floating enable
+for_window [instance="^steamwebhelper$"] floating enable
+#for_window [app_id="org.telegram.desktop"] floating enable
 for_window [app_id="com.github.hluk.copyq"] floating enable
 for_window [app_id="org.kde.kdeconnect.handler"] floating enable
 for_window [app_id="org.kde.kcalc"] floating enable
 
 # Firefox picture-in-picture
 for_window [title="Picture-in-Picture"] floating enable
+# Firefox tree style tabs extension dialog (not working...)
+#for_window [title="^about:blank - Close tabs\? — Mozilla Firefox$"] floating enable
+#for_window [window_type="floating_con" app_id="firefox" title="about:blank - Close tabs\? — Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="Saladict"] floating enable
 
 # Thunar file operation dialogs
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Confirm to replace files"] floating enable
 
-# Ark show dialogs with file names in their titles
+# Ark shows dialogs with file names in their titles
 for_window [app_id="org.kde.ark"] floating enable
+
+# RSSGuard
+for_window [window_type="floating_con" app_id="io.github.martinrotter.rssguardlite" title="^RSS Guard$"] floating enable
+
+for_window [class="wemeet"] floating enable
+for_window [title="Emoji.*Wnd"] floating enable

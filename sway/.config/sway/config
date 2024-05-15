@@ -19,7 +19,7 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | wmenu | xargs swaymsg exec --
-set $menu wofi --show drun
+set $menu fuzzel
 
 ### Output configuration
 #
@@ -86,7 +86,6 @@ input type:keyboard {
 
     # Kill focused window
     bindsym $mod+Shift+q kill
-    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -160,8 +159,8 @@ input type:keyboard {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+v splith
+    bindsym $mod+b splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+a layout stacking
@@ -179,6 +178,9 @@ input type:keyboard {
 
     # Move focus to the parent container
     bindsym $mod+z focus parent
+    
+    # Move focus to the child container
+    bindsym $mod+x focus child
 #
 # Scratchpad:
 #
@@ -243,6 +245,13 @@ bindsym $mod+r mode "resize"
 #}
 # We use waybar instead.
 exec waybar
+
+# hidpi settings
+exec_always {
+    xprop -root -format _XWAYLAND_GLOBAL_OUTPUT_SCALE 32c -set _XWAYLAND_GLOBAL_OUTPUT_SCALE 2
+    xrdb -merge <<< 'Xft.dpi: 192'
+    xsettingsd
+}
 
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
