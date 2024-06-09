@@ -69,7 +69,7 @@ nnoremap <silent> <C-q> :Aleq<CR>
 nnoremap <silent> c<Tab> :let @/=expand('<cword>')<cr>cgn
 
 " Quick lookup current word in dictionary
-"nnoremap D :!ydcv <cword><CR>
+nnoremap <space>d :!ydcv <cword><CR>
 
 " Use tab and shift-tab to navigate in completions.
 " Use enter to comfirm current completion candidate.
@@ -106,7 +106,7 @@ let g:compile_command = ''
 " Function to set the compile command
 function! SetCompileCommand()
   if empty(g:compile_command)
-    let g:compile_command = input("Compile command: ", "make", "file")
+    let g:compile_command = input("Compile command: ", "make", "arglist")
   endif
 endfunction
 
@@ -123,5 +123,15 @@ endfunction
 " Bind the compile function to a shortcut
 nnoremap <leader>cc :call RunCompileCommand()<CR>
 nnoremap <F5> :call RunCompileCommand()<CR>
-nnoremap <leader>cm :let g:compile_command = input("Compile command: ", "", "file")<CR>
+nnoremap <leader>cm :let g:compile_command = input("Compile command: ", g:compile_command, "arglist")<CR>
+
+" make and quickfix navigation
+function! SetMakeprg()
+    let l:makeprg = input("makeprg: ", "make", "arglist")
+    let &makeprg = l:makeprg
+endfunction
+nnoremap <leader>mm :make
+nnoremap <leader>mc :call SetMakeprg()<CR>
+nnoremap [g :cprevious<CR>
+nnoremap ]g :cnext<CR>
 
