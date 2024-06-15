@@ -100,31 +100,6 @@ nmap <silent> <leader>e :call InlineCommand()<CR>
 " Ctrl-C to call shellcheck
 autocmd FileType sh nnoremap <C-c> :!shellcheck %:p<CR>
 
-" Define a global variable to store the compile command
-let g:compile_command = ''
-
-" Function to set the compile command
-function! SetCompileCommand()
-  if empty(g:compile_command)
-    let g:compile_command = input("Compile command: ", "make", "arglist")
-  endif
-endfunction
-
-" Function to execute the compile command
-function! RunCompileCommand()
-  call SetCompileCommand()
-  if !empty(g:compile_command)
-    execute '!' . g:compile_command
-  else
-    echo "No compile command set."
-  endif
-endfunction
-
-" Bind the compile function to a shortcut
-nnoremap <leader>cc :call RunCompileCommand()<CR>
-nnoremap <F5> :call RunCompileCommand()<CR>
-nnoremap <leader>cm :let g:compile_command = input("Compile command: ", g:compile_command, "arglist")<CR>
-
 " make and quickfix navigation
 function! SetMakeprg()
     let l:makeprg = input("makeprg: ", "make", "arglist")
