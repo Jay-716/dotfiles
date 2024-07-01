@@ -1,9 +1,10 @@
+// vim: se ft=javascript:
 {
     "layer": "top",
     "position": "bottom",
     "height": 32,
-    "modules-left": ["wlr/taskbar"],
-    //"modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    //"modules-left": ["wlr/taskbar"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     //"modules-center": [],
     "modules-right": ["idle_inhibitor", "mpris", "network", "pulseaudio", "battery", "memory", "cpu", "clock", "tray"],
     "wlr/taskbar": {
@@ -65,7 +66,10 @@
             "portable": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "ignored-sinks": ["Easy Effects Sink"],
+        //"on-click": "pavucontrol",
+        "on-click": "easyeffects",
+        "on-click-right": "amixer set Master toggle"
     },
     "tray": {
         "icon-size": 18,
@@ -85,8 +89,8 @@
       }
     },
     "mpris": {
-        "format": " {player_icon} {dynamic} ",
-        "format-paused": " {status_icon} <i>{dynamic}</i> ",
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
         "player-icons": {
             "default": "▶",
             "mpv": "🎵",
