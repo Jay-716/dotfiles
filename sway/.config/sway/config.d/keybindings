@@ -26,6 +26,13 @@ bindsym Alt+$mod+Shift+Right move output right
 # Traverse workspaces
 bindsym Ctrl+$mod+$left workspace prev
 bindsym Ctrl+$mod+$right workspace next
+bindsym Ctrl+$mod+Left workspace prev
+bindsym Ctrl+$mod+Right workspace next
+# Traverse workspaces with current window or container
+bindsym Ctrl+$mod+Shift+$left move workspace prev
+bindsym Ctrl+$mod+Shift+$right move workspace next
+bindsym Ctrl+$mod+Shift+Left move workspace prev
+bindsym Ctrl+$mod+Shift+Right move workspace next
 
 bindsym --no-repeat $mod+Shift+Escape exec "sleep 3 && pkill -USR1 swayidle"
 bindsym --no-repeat $mod+Shift+f exec "sd-run-app firefox"
@@ -54,7 +61,7 @@ bindsym --no-repeat Ctrl+Print exec "slurp | grim -g - ~/Pictures/Screenshots/$(
 bindsym XF86MonBrightnessUp exec "light -A 5"
 bindsym XF86MonBrightnessDown exec "light -U 5"
 
-bindsym --no-repeat $mod+e exec thunar
+bindsym --no-repeat $mod+e exec sd-run-app thunar
 
 bindsym --no-repeat $mod+Escape exec wlogout
 
