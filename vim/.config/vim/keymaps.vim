@@ -37,6 +37,12 @@ inoremap <silent><m-8> <ESC>:tabn 8<cr>
 inoremap <silent><m-9> <ESC>:tabn 9<cr>
 inoremap <silent><m-0> <ESC>:tabn 10<cr>
 
+" Map the hard to get ^ and $
+nnoremap <S-A> ^
+nnoremap <S-E> $
+onoremap <S-A> ^
+onoremap <S-E> $
+
 " Use Ctrl-S to save current buffer
 nnoremap <C-s> :w<CR>
 
