@@ -1,0 +1,20 @@
+if has("gui_running")
+    if has("gui_gtk")
+    :set guifont=monospace\ 13
+    elseif has("x11")
+    :set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
+    elseif has("gui_win32")
+    :set guifont=Luxi_Mono:h12:cANSI
+    endif
+
+    if $XDG_CURRENT_DESKTOP !=? "sway"
+    :set lines=30
+    :set columns=130
+    endif
+
+    " ALT+N/P to switch to next/previous tab
+    nmap <silent><m-n> :tabNext<cr>
+    nmap <silent><m-p> :tabprevious<cr>
+
+    set guioptions+=!
+endif
