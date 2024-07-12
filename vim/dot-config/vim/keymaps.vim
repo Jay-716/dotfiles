@@ -38,10 +38,12 @@ inoremap <silent><m-9> <ESC>:tabn 9<cr>
 inoremap <silent><m-0> <ESC>:tabn 10<cr>
 
 " Map the hard to get ^ and $
-nnoremap <S-A> ^
-nnoremap <S-E> $
-onoremap <S-A> ^
-onoremap <S-E> $
+nnoremap _ ^
+nnoremap + $
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+onoremap <C-a> ^
+onoremap <C-e> $
 
 " Use Ctrl-S to save current buffer
 nnoremap <C-s> :w<CR>
@@ -54,7 +56,7 @@ nnoremap <silent> <C-w>z <C-w>_ \| <C-w>\|
 " Tree style file list
 " Disable banner
 " Netrw width 25%
-nnoremap <C-e> :Vex<CR>
+"nnoremap <C-e> :Vex<CR>
 nnoremap <space>e :Lex<CR>
 nnoremap <space>E :E<CR>
 let g:netrw_bufsettings = 'noma nomod nonu nowrap ro nobl number relativenumber'
