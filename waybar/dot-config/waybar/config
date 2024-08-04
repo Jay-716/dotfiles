@@ -73,7 +73,7 @@
     },
     "tray": {
         "icon-size": 18,
-        "spacing": 10
+        "spacing": 3
     },
     "network": {
         "format-wifi": "󰖩 {essid}",
