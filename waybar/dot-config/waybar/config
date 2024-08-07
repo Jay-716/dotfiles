@@ -40,7 +40,8 @@
     },
     "clock": {
     	"format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d %a %H:%M}"
+        "format-alt": "{:%Y-%m-%d %a %H:%M}",
+        "tooltip": false
      },
     "cpu": {
         "interval": 5,
