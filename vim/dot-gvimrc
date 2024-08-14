@@ -16,5 +16,9 @@ if has("gui_running")
     nmap <silent><m-n> :tabNext<cr>
     nmap <silent><m-p> :tabprevious<cr>
 
-    set guioptions+=!
+    " !: Run commands in a new window.
+    " k: Fix vsplit columns shrink. Potentially because gvim is trying to fit
+    "    the screen size on adding a new scrolling bar.
+    "    See: https://github.com/vim/vim/issues/13834
+    set guioptions+=!k
 endif

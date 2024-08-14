@@ -27,3 +27,6 @@ set ttimeoutlen=100
 set nocompatible
 filetype plugin indent on
 
+" gx to open a link using browser.
+let g:netrw_browsex_viewer = "xdg-open"
+
