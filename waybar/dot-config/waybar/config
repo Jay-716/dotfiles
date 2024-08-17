@@ -98,7 +98,7 @@
             "firefox": "🦊"
         },
         "status-icons": {
-            "paused": "⏸"
+            "paused": "⏸️"
         },
         // "ignored-players": ["firefox"],
         "dynamic-len": 35,
