@@ -1,5 +1,9 @@
-inoremap <c-j> <down>
-inoremap <c-k> <up>
+" Plugins
+imap <C-J> <Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
+
+"inoremap <c-j> <down>
+"inoremap <c-k> <up>
 inoremap <c-l> <right>
 inoremap <c-h> <left>
 
