@@ -9,6 +9,7 @@ Plug 'tpope/vim-repeat'
 Plug 'honza/vim-snippets'
 Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 
 call plug#end()
 
