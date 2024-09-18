@@ -11,4 +11,5 @@ exec nm-applet
 #exec "sleep 2 && blueman-applet"
 #exec "sleep 3 && sd-run-app variety"
 exec "sleep 3 && sd-run-app kdeconnect-indicator"
+exec pme -t $((45 * 60))
 

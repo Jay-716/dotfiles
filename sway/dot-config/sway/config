@@ -255,5 +255,7 @@ exec_always {
     xsettingsd
 }
 
+workspace_layout tabbed
+
 include /etc/sway/config.d/*
 include ~/.config/sway/config.d/*
