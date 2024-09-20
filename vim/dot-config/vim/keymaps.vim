@@ -119,6 +119,7 @@ function! SetMakeprg()
 endfunction
 nnoremap <leader>mm :make
 nnoremap <leader>mc :call SetMakeprg()<CR>
+autocmd FileType c nnoremap <leader>cc :set makeprg=cc\ -Wall\ -Wextra \| make %<CR>
 nnoremap [g :cprevious<CR>
 nnoremap ]g :cnext<CR>
 
