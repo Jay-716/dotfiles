@@ -81,7 +81,6 @@ button:hover {
 
 #pulseaudio {
   color: #0f80f1;
-  min-width: 55px;
 }
 
 #pulseaudio.muted {

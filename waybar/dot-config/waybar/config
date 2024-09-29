@@ -3,9 +3,7 @@
     "layer": "top",
     "position": "bottom",
     "height": 32,
-    //"modules-left": ["wlr/taskbar"],
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    //"modules-center": [],
     "modules-right": ["idle_inhibitor", "mpris", "network", "pulseaudio", "battery", "memory", "cpu", "clock", "tray"],
     "wlr/taskbar": {
         "format": "{icon}",
@@ -53,10 +51,10 @@
      },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{volume}% {icon}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": "󰝟 {icon} {format_source}",
-        "format-muted": "󰝟 {format_source}",
+        "format-muted": "󰝟",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -68,7 +66,6 @@
             "default": ["", "", ""]
         },
         "ignored-sinks": ["Easy Effects Sink"],
-        //"on-click": "pavucontrol",
         "on-click": "easyeffects",
         "on-click-right": "amixer set Master toggle"
     },
@@ -100,7 +97,7 @@
         "status-icons": {
             "paused": "⏸️"
         },
-        // "ignored-players": ["firefox"],
+        "ignored-players": ["firefox"],
         "dynamic-len": 35,
     }
 }
