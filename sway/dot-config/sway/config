@@ -71,6 +71,12 @@ input type:touchpad {
     middle_emulation disabled
     pointer_accel 0.15
     accel_profile adaptive
+    scroll_factor 0.5
+}
+
+input type:pointer {
+    pointer_accel -0.15
+    accel_profile adaptive
 }
 
 input type:keyboard {
