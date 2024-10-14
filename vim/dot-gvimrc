@@ -20,5 +20,11 @@ if has("gui_running")
     " k: Fix vsplit columns shrink. Potentially because gvim is trying to fit
     "    the screen size on adding a new scrolling bar.
     "    See: https://github.com/vim/vim/issues/13834
+    " m: menubar; T: toolbar, r: right scroll bar always present, L: left
+    " scroll bar present when vsplit
     set guioptions+=!k
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+    set guioptions-=L
 endif
