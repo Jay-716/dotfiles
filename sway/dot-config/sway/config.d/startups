@@ -1,5 +1,6 @@
 # vi: ft=swayconfig
 
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec systemctl --user import-environment SWAYSOCK _JAVA_AWT_WM_NONREPARENTING
 exec fcitx5
 exec "sleep 2 && udiskie -Ans"
@@ -11,5 +12,5 @@ exec nm-applet
 #exec "sleep 2 && blueman-applet"
 #exec "sleep 3 && sd-run-app variety"
 exec "sleep 3 && sd-run-app kdeconnect-indicator"
-exec pme -t $((45 * 60))
+exec pme -t $((45 * 60)) -x 'sleep 5 && pkill -USR1 swayidle'
 

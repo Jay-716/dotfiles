@@ -57,6 +57,15 @@ bindsym --no-repeat Print exec "grim ~/Pictures/Screenshots/$(date '+%F_%T').png
 bindsym --no-repeat Ctrl+Shift+Print exec "slurp | grim -g - - | tee ~/Pictures/Screenshots/$(date '+%F_%T').png | wl-copy --type image/png"
 bindsym --no-repeat Shift+Print exec "slurp | grim -g - - | wl-copy --type image/png"
 bindsym --no-repeat Ctrl+Print exec "slurp | grim -g - ~/Pictures/Screenshots/$(date '+%F_%T').png"
+bindsym --no-repeat Ctrl+Shift+Alt+Print exec \
+            swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?)' | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"' \
+            | slurp | grim -g - - | tee ~/Pictures/Screenshots/$(date '+%F_%T').png | wl-copy --type image/png
+bindsym --no-repeat Shift+Alt+Print exec \
+            swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?)' | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"' \
+            | slurp | grim -g - - | wl-copy --type image/png
+bindsym --no-repeat Ctrl+Alt+Print exec \
+            swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?)' | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"' \
+            | slurp | grim -g - ~/Pictures/Screenshots/$(date '+%F_%T').png
 
 bindsym XF86MonBrightnessUp exec "light -A 5"
 bindsym XF86MonBrightnessDown exec "light -U 5"
