@@ -71,6 +71,8 @@ let g:netrw_winsize = 25
 "command! -range Aleq execute <line1>.",".<line2> . "! sed 's/=/PXXXQYYY/'| column -t -s 'PXXX'| sed 's/QYYY\s*/= /'"
 command! -range Aleq execute <line1>.",".<line2> . "! column -t -s= -o="
 nnoremap <silent> <C-q> :Aleq<CR>
+command! -range Align let delimiter = input("Input delimiter: ") |
+            \   execute <line1>.",".<line2> . "! column -t '-s" . delimiter . "' '-o" . delimiter . "'"
 
 " Make `*` stay at the current cursor position.
 "nnoremap * m`:keepjumps normal! *``<cr>
