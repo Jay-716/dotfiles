@@ -117,8 +117,8 @@ function! SetMakeprg()
     let l:makeprg = input("makeprg: ", "make", "arglist")
     let &makeprg = l:makeprg
 endfunction
-nnoremap <leader>mm :make
-nnoremap <leader>mc :call SetMakeprg()<CR>
+nnoremap <leader>m :make
+nnoremap <leader>cm :call SetMakeprg()<CR>
 autocmd FileType c nnoremap <leader>cc :set makeprg=cc\ -Wall\ -Wextra \| make %<CR>
 nnoremap [g :cprevious<CR>
 nnoremap ]g :cnext<CR>
