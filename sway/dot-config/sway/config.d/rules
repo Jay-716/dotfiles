@@ -1,19 +1,20 @@
 # vi: set ft=swayconfig
 
+for_window [app_id="com.github.hluk.copyq"] floating enable
+for_window [app_id="org.kde.kcalc"] floating enable
+
+# Steam
 for_window [class="^[Ss]team$"] floating enable
 for_window [title="^[Ss]team$"] floating enable
 for_window [instance="^steamwebhelper$"] floating enable
-#for_window [app_id="org.telegram.desktop"] floating enable
-for_window [app_id="com.github.hluk.copyq"] floating enable
+
+# KDE Connect dialogs
 for_window [app_id="org.kde.kdeconnect.handler"] floating enable
 for_window [app_id="^.*kdeconnect.*$" title="^Sending to.*$"] floating enable
-for_window [app_id="org.kde.kcalc"] floating enable
+for_window [app_id="^.*kdeconnect.*$" title="^Receiving file.*$"] floating enable
 
 # Firefox picture-in-picture
 for_window [title="Picture-in-Picture"] floating enable
-# Firefox tree style tabs extension dialog (not working...)
-#for_window [title="^about:blank - Close tabs\? — Mozilla Firefox$"] floating enable
-#for_window [window_type="floating_con" app_id="firefox" title="about:blank - Close tabs\? — Mozilla Firefox"] floating enable
 for_window [app_id="firefox" title="Saladict"] floating enable
 
 # Thunar dialogs

@@ -252,7 +252,7 @@ bindsym $mod+r mode "resize"
 #    }
 #}
 # We use waybar instead.
-exec waybar
+exec waybar-wrapper
 
 # hidpi settings
 exec_always {
