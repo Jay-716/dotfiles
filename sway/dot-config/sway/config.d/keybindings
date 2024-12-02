@@ -49,7 +49,7 @@ bindsym --no-repeat XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE
 bindsym --no-repeat XF86AudioPlay exec "playerctl play-pause"
 bindsym --no-repeat XF86AudioNext exec "playerctl next"
 bindsym --no-repeat XF86AudioPrev exec "playerctl previous"
-bindsym --no-repeat $mod+Shift+r /home/jay/.local/bin/fix-broken-sound
+bindsym --no-repeat $mod+Shift+r exec fix-broken-sound
 
 # Ctrl - save
 # Shift - copy
