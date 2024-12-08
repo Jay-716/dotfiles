@@ -1,0 +1,21 @@
+[submodule "vim/dot-vim/pack/fcitx/start/fcitx.vim"]
+	path = vim/dot-vim/pack/fcitx/start/fcitx.vim
+	url = git@github.com:lilydjwg/fcitx.vim.git
+[submodule "vim/dot-vim/pack/surround/start/vim-surround"]
+	path = vim/dot-vim/pack/surround/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/dot-vim/pack/repeat/start/vim-repeat"]
+	path = vim/dot-vim/pack/repeat/start/vim-repeat
+	url = git@github.com:tpope/vim-repeat.git
+[submodule "vim/dot-vim/pack/snipmate/start/vim-snipmate"]
+	path = vim/dot-vim/pack/snipmate/start/vim-snipmate
+	url = git@github.com:garbas/vim-snipmate.git
+[submodule "vim/dot-vim/pack/snipmate/start/vim-addon-mw-utils"]
+	path = vim/dot-vim/pack/snipmate/start/vim-addon-mw-utils
+	url = git@github.com:MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/dot-vim/pack/snipmate/start/tlib_vim"]
+	path = vim/dot-vim/pack/snipmate/start/tlib_vim
+	url = git@github.com:tomtom/tlib_vim.git
+[submodule "vim/dot-vim/pack/snippets/start/vim-snippets"]
+	path = vim/dot-vim/pack/snippets/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git

@@ -15,7 +15,7 @@ set smarttab
 
 set ignorecase
 set smartcase
-"set hlsearch
+set hlsearch
 set incsearch
 
 set cursorline
@@ -28,4 +28,10 @@ filetype plugin indent on
 
 " gx to open a link using browser.
 let g:netrw_browsex_viewer = "xdg-open"
+
+" State files
+set viminfofile=~/.local/state/vim/viminfo
+set undodir=~/.local/state/vim/undo
+set undofile
+let g:netrw_home=$HOME."/.local/state/vim"
 
