@@ -12,10 +12,6 @@ if has("gui_running")
     :set columns=130
     endif
 
-    " ALT+N/P to switch to next/previous tab
-    nmap <silent><m-n> :tabNext<cr>
-    nmap <silent><m-p> :tabprevious<cr>
-
     " !: Run commands in a new window.
     " k: Fix vsplit columns shrink. Potentially because gvim is trying to fit
     "    the screen size on adding a new scrolling bar.

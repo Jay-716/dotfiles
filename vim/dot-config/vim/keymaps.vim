@@ -1,49 +1,59 @@
-" Plugins
-imap <C-J> <Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
+" Fix alt key in terminal
+" See: https://github.com/vim/vim/issues/2588#issuecomment-697959290
+if !has('nvim') && !has('gui_running')
+  set ttimeoutlen=5
+  " set up Meta to work properly for most keys in terminal vim
+  " NOTE: these do not work: <m-space>,<m->>,<m-[>,<m-]>,<m-{up,down,left,right}>
+  " NOTE: <m-@>,<m-O> only work in xterm and gvim - not st, urxvt, etc
+  " NOTE: map <m-\|> or <m-bar>
+  for ord in range(33,61)+range(63,90)+range(92,126)
+    let char = ord is 34 ? '\"' : ord is 124 ? '\|' : nr2char(ord)
+    exec printf("set <m-%s>=\<esc>%s", char, char)
+    if exists(':tnoremap') " fix terminal control sequences
+      exec printf("tnoremap <silent> <m-%s> <esc>%s", char, char)
+    endif
+  endfor
+  " set up <c-left> and <c-right> properly
+  " NOTE: if below don't work, compare with ctrl-v + CTRL-{LEFT,RIGHT} in INSERT mode
+  " NOTE: <c-up>,<c-down> do not work in any terminal
+  exe "set <c-right>=\<esc>[1;5C"
+  exe "set <c-left>=\<esc>[1;5D"
+endif
 
-"inoremap <c-j> <down>
-"inoremap <c-k> <up>
-inoremap <c-l> <right>
-inoremap <c-h> <left>
+" Plugins
+imap <C-j> <Plug>snipMateNextOrTrigger
+smap <C-j> <Plug>snipMateNextOrTrigger
+
+" Handy cursor moving in insert mode
+inoremap <C-l> <right>
+inoremap <C-h> <left>
 
 " Command mode key mappings
-cnoremap <c-h> <left>
-cnoremap <c-j> <down>
-cnoremap <c-k> <up>
-cnoremap <c-l> <right>
-cnoremap <c-f> <right>
-cnoremap <c-b> <left>
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <M-f> <S-Right>
+cnoremap <M-b> <S-Left>
+" Note: In command mode mappings to esc run the command for some odd
+" historical vi compatibility reason. We use the alternate method of
+" exiting which is Ctrl-C
+" See: https://vi.stackexchange.com/questions/16963/remap-esc-key-in-vim
+cnoremap <C-g> <C-c>
 
-" ALT+N to switch tab
-noremap <silent><m-1> :tabn 1<cr>
-noremap <silent><m-2> :tabn 2<cr>
-noremap <silent><m-3> :tabn 3<cr>
-noremap <silent><m-4> :tabn 4<cr>
-noremap <silent><m-5> :tabn 5<cr>
-noremap <silent><m-6> :tabn 6<cr>
-noremap <silent><m-7> :tabn 7<cr>
-noremap <silent><m-8> :tabn 8<cr>
-noremap <silent><m-9> :tabn 9<cr>
-noremap <silent><m-0> :tabn 10<cr>
-inoremap <silent><m-1> <ESC>:tabn 1<cr>
-inoremap <silent><m-2> <ESC>:tabn 2<cr>
-inoremap <silent><m-3> <ESC>:tabn 3<cr>
-inoremap <silent><m-4> <ESC>:tabn 4<cr>
-inoremap <silent><m-5> <ESC>:tabn 5<cr>
-inoremap <silent><m-6> <ESC>:tabn 6<cr>
-inoremap <silent><m-7> <ESC>:tabn 7<cr>
-inoremap <silent><m-8> <ESC>:tabn 8<cr>
-inoremap <silent><m-9> <ESC>:tabn 9<cr>
-inoremap <silent><m-0> <ESC>:tabn 10<cr>
+" Alt+h/l to switch buffers
+nnoremap <silent><M-h> :bnext<cr>
+nnoremap <silent><M-l> :bprevious<cr>
 
 " Map the hard to get ^ and $
 nnoremap _ ^
 nnoremap + $
-inoremap <C-a> <C-o>^
-inoremap <C-e> <C-o>$
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 onoremap <C-a> ^
 onoremap <C-e> $
 
