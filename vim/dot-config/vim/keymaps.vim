@@ -46,8 +46,8 @@ cnoremap <M-b> <S-Left>
 cnoremap <C-g> <C-c>
 
 " Alt+h/l to switch buffers
-nnoremap <silent><M-h> :bnext<cr>
-nnoremap <silent><M-l> :bprevious<cr>
+nnoremap <silent><M-h> :bprevious<cr>
+nnoremap <silent><M-l> :bnext<cr>
 
 " Map the hard to get ^ and $
 nnoremap _ ^
