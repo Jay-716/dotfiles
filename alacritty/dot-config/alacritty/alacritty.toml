@@ -1,0 +1,19 @@
+[colors.primary]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+[font]
+size = 13.0
+
+[terminal.shell]
+args = ["--login"]
+program = "/bin/fish"
+
+[window]
+opacity = 0.85
+decorations = "Full"
+
+[window.dimensions]
+columns = 120
+lines = 30
+
