@@ -8,6 +8,16 @@ if status is-interactive
     set -x MANROFFOPT "-c"
     set -x LESS "-FrXM"
 
+    alias ht "htop"
+    alias lg "lazygit"
+    alias tm "tmux"
+    alias nn "env NNN_TRASH=1 NNN_OPTS=edAB nnn"
+    alias nv "nvim"
+    alias pyvenv "source ~/Programs/pyvenv0/bin/activate.fish"
+    alias uuid4gen "python -c 'import uuid; print(uuid.uuid4())'"
+    alias cp "cp -i"
+    alias mv "mv -i"
+
     set -x GPG_TTY (tty)
     keychain --eval --quiet -Q | source
 end
