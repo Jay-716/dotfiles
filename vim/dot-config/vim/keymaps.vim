@@ -44,6 +44,7 @@ cnoremap <M-b> <S-Left>
 " exiting which is Ctrl-C
 " See: https://vi.stackexchange.com/questions/16963/remap-esc-key-in-vim
 cnoremap <C-g> <C-c>
+cnoremap <M-e> <C-f>
 
 " Alt+h/l to switch buffers
 nnoremap <silent><M-h> :bprevious<cr>
