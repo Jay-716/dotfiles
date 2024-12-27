@@ -43,7 +43,7 @@
      },
     "cpu": {
         "interval": 5,
-        "format": "{avg_frequency}GHz {usage}%"
+        "format": "{max_frequency}GHz {load}"
      },
      "memory": {
         "interval": 10,
