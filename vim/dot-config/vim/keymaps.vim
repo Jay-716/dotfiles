@@ -45,6 +45,7 @@ cnoremap <M-b> <S-Left>
 " See: https://vi.stackexchange.com/questions/16963/remap-esc-key-in-vim
 cnoremap <C-g> <C-c>
 cnoremap <M-e> <C-f>
+cnoremap <C-d> <Delete>
 
 " Alt+h/l to switch buffers
 nnoremap <silent><M-h> :bprevious<cr>
@@ -57,6 +58,10 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 onoremap <C-a> ^
 onoremap <C-e> $
+
+" Intuitive visual mode indent
+vnoremap < <gv
+vnoremap > >gv
 
 " Use Ctrl-S to save current buffer
 nnoremap <C-s> :w<CR>
