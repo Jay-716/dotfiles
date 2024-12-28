@@ -1,5 +1,6 @@
 if status is-interactive
     set -a PATH ~/.local/bin
+    set -a PATH ~/go/bin
 
     set -x EDITOR vim
     set -x SHELL /usr/bin/fish
