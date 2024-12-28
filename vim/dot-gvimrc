@@ -1,7 +1,7 @@
 if has("gui_running")
     if has("gui_gtk")
         set guifont=monospace\ 13
-        function! ChangeGuiFontSize(delta)
+        function ChangeGuiFontSize(delta)
             let l:font_name = matchstr(&guifont, '^\D\+\ze ')
             let l:font_size = str2nr(matchstr(&guifont, '\zs\d\+$'))
             let l:font_size += a:delta
@@ -9,10 +9,10 @@ if has("gui_running")
                 let &guifont = l:font_name . " " . l:font_size
             endif
         endfunction
-        nnoremap <C-_> :call ChangeGuiFontSize(-1)<CR>
-        nnoremap <C-=> :call ChangeGuiFontSize(1)<CR>
-        nnoremap <C-kMinus> :call ChangeGuiFontSize(-1)<CR>
-        nnoremap <C-kPlus> :call ChangeGuiFontSize(1)<CR>
+        nnoremap <silent> <C-_> :call ChangeGuiFontSize(-1)<CR>
+        nnoremap <silent> <C-=> :call ChangeGuiFontSize(1)<CR>
+        nnoremap <silent> <C-kMinus> :call ChangeGuiFontSize(-1)<CR>
+        nnoremap <silent> <C-kPlus> :call ChangeGuiFontSize(1)<CR>
     elseif has("x11")
         set guifont=*-lucidatypewriter-medium-r-normal-*-*-180-*-*-m-*-*
     elseif has("gui_win32")

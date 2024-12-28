@@ -116,6 +116,7 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 " Insert output of external commands into **current** cursor position.
+" :r !{cmd} insert into next line
 function InlineCommand()
     let l:cmd = input('Command: ')
     let l:output = system(l:cmd)
