@@ -19,6 +19,8 @@ if status is-interactive
     alias cp "cp -i"
     alias mv "mv -i"
 
+    abbr syu "sudo pacman -Syu"
+
     set -x GPG_TTY (tty)
     keychain --eval --quiet -Q | source
 end
