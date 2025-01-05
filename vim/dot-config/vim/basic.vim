@@ -35,3 +35,8 @@ set undodir=~/.local/state/vim/undo
 set undofile
 let g:netrw_home=$HOME."/.local/state/vim"
 
+" termresponse of foot emits some weird garbage
+if &term == "foot"
+    set t_RV=
+endif
+
