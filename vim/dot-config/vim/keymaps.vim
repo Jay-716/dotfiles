@@ -128,15 +128,18 @@ nmap <silent> <leader>e :call InlineCommand()<CR>
 
 " Ctrl-C to call shellcheck
 autocmd FileType sh nnoremap <C-c> :!shellcheck %:p<CR>
+autocmd FileType bash nnoremap <C-c> :!shellcheck %:p<CR>
 
 " make and quickfix navigation
 function! SetMakeprg()
-    let l:makeprg = input("makeprg: ", "make", "arglist")
+    let l:makeprg = input("makeprg: ", "make")
     let &makeprg = l:makeprg
 endfunction
 nnoremap <leader>m :make
 nnoremap <leader>cm :call SetMakeprg()<CR>
-autocmd FileType c nnoremap <leader>cc :set makeprg=cc\ -Wall\ -Wextra \| make %<CR>
+autocmd FileType c nnoremap <leader>cc :cexpr system('cc -Wall -Wextra -O0 -ggdb ' . expand('%'))<CR>
 nnoremap [g :cprevious<CR>
 nnoremap ]g :cnext<CR>
+
+command Todo edit ~/Desktop/todo
 
