@@ -1,7 +1,7 @@
 # vi: ft=swayconfig
 
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec systemctl --user import-environment SWAYSOCK _JAVA_AWT_WM_NONREPARENTING
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE SWAYSOCK _JAVA_AWT_WM_NONREPARENTING
 exec fcitx5
 exec "sleep 2 && udiskie -Ans"
 exec "sleep 3 && copyq --start-server"
