@@ -1,3 +1,4 @@
+" From: https://github.com/lilydjwg/dotvim/blob/d6018aeae6c0be9f89c6dd770fc45d866f7d518d/plugin/transwrd.vim
 
 " transwrd.vim: Swap two words as M-t (transpose-words) function in Emacs (Bash)
 "               This version of the script act more likely to M-t in Bash
