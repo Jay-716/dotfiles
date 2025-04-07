@@ -1,3 +1,6 @@
 [viewer]
 window = #000000AA
 antialiasing = yes
+
+[font]
+name = Source Han Sans CN
