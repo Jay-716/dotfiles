@@ -38,18 +38,17 @@ bindsym --no-repeat $mod+Shift+Escape exec "sleep 3 && pkill -USR1 swayidle"
 bindsym --no-repeat $mod+Shift+f exec "sd-run-app firefox"
 bindsym --no-repeat $mod+Shift+g exec "sd-run-app firefox --private-window"
 
-#bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
-#bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
-#bindsym --release --no-repeat XF86AudioMute exec "amixer set Master toggle"
-#bindsym --release --no-repeat XF86AudioMicMute exec "amixer -c 0 cset name='Dmic0 Capture Switch' toggle"
-bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5%"
-bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5%"
-bindsym --no-repeat XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && ( [ "$(pactl get-sink-mute @DEFAULT_SINK@)" = "Mute: yes" ] && echo 0 > $WOBSOCK ) || pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1{print substr($5,1,length($5)-1)}' > $WOBSOCK
 bindsym --no-repeat XF86AudioMicMute exec "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 bindsym --no-repeat XF86AudioPlay exec "playerctl play-pause"
 bindsym --no-repeat XF86AudioNext exec "playerctl next"
 bindsym --no-repeat XF86AudioPrev exec "playerctl previous"
 bindsym --no-repeat $mod+Shift+r exec fix-broken-sound
+bindsym --no-repeat $mod+Shift+t exec fix-broken-sound --headphone
 
 # Ctrl - save
 # Shift - copy
@@ -67,10 +66,11 @@ bindsym --no-repeat Ctrl+Alt+Print exec \
             swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?)' | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"' \
             | slurp | grim -g - ~/Pictures/Screenshots/$(date '+%F_%T').png
 
-bindsym XF86MonBrightnessUp exec "light -A 5"
-bindsym XF86MonBrightnessDown exec "light -U 5"
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | sed -En 's/.*\(([0-9]+)%\).*/\1/p' > $WOBSOCK
 
 bindsym --no-repeat $mod+e exec sd-run-app thunar
 
 bindsym --no-repeat $mod+Escape exec wlogout
 
+bindsym --no-repeat $mod+c exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
