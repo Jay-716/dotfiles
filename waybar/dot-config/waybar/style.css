@@ -10,7 +10,7 @@ widget > * {
 
 window#waybar {
   background-color: #000000;
-  color: #8080cc;
+  color: #ffffff;
   transition-property: background-color;
   transition-duration: .5s;
 }
@@ -137,4 +137,8 @@ button:hover {
 #mpris {
     padding: 0 10px;
     color: #ffffff;
+}
+
+#network {
+    color: #8080cc;
 }
