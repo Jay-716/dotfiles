@@ -40,3 +40,6 @@ if &term == "foot"
     set t_RV=
 endif
 
+set showcmd
+set shortmess-=S
+
