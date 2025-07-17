@@ -73,4 +73,4 @@ bindsym --no-repeat $mod+e exec sd-run-app thunar
 
 bindsym --no-repeat $mod+Escape exec wlogout
 
-bindsym --no-repeat $mod+c exec cliphist list | fuzzel --dmenu | cliphist decode | wl-copy
+bindsym --no-repeat $mod+c exec cliphist list | wofi -S dmenu | cliphist decode | wl-copy
