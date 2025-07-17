@@ -1,5 +1,11 @@
+[general]
+size = fullscreen
+
 [viewer]
 window = #000000AA
 
 [font]
 name = Source Han Sans CN
+
+[info]
+show = no
