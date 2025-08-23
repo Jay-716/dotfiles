@@ -91,7 +91,7 @@ input type:keyboard {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
-    bindsym $mod+Shift+Return exec $term --command fish -C 'set fish_private_mode 1'
+    bindsym $mod+Shift+Return exec $term fish -C 'set fish_private_mode 1'
 
     # Kill focused window
     bindsym $mod+Shift+q kill
