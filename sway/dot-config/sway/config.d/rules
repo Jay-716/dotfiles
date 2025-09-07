@@ -21,6 +21,7 @@ for_window [app_id="firefox" title="Saladict"] floating enable
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Confirm to replace files"] floating enable
 for_window [title="Audio Information"] floating enable
+for_window [title="^Rename .*$"] floating enable
 
 # Ark shows dialogs with file names in their titles
 for_window [app_id="org.kde.ark"] floating enable
