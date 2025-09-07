@@ -1,6 +1,6 @@
 if has("gui_running")
     if has("gui_gtk")
-        set guifont=monospace\ 13
+        set guifont=monospace\ 14
         function ChangeGuiFontSize(delta)
             let l:font_name = matchstr(&guifont, '^\D\+\ze ')
             let l:font_size = str2nr(matchstr(&guifont, '\zs\d\+$'))
