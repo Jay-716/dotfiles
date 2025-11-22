@@ -30,14 +30,26 @@ set statusline+=%8*\ %=\ row:%l/%L\ (%p%%)\               "Rownumber/total (%)
 set statusline+=%9*\ col:%c\                              "Colnr
 set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
 
-" Display python indent "    " as "|   "
-function ShowPythonIndent()
-	set list
-	set lcs-=eol:$
-    set lcs+=leadmultispace:\|\ \ \ 
-    " leading listchars' default highlight is hl-SpecialKey
-    highlight PyIndent ctermfg=gray guifg=gray
-    match PyIndent /^\(    \)\+/
-endfunction
-autocmd FileType python call ShowPythonIndent()
+set list
+set lcs-=eol:$
+
+augroup HighlightTrailingSpace
+    autocmd!
+
+    set lcs+=trail:·
+    highlight TrailingSpace ctermbg=red ctermfg=yellow guibg=red guifg=yellow
+    autocmd WinEnter,BufEnter * let w:trailing_space_match_id = matchadd('TrailingSpace', '\s\+$')
+augroup END
+
+augroup PythonSettings
+    autocmd!
+
+    " Display python indent "    " as "|   "
+    function! s:SetupPythonHighlight()
+        setlocal lcs+=leadmultispace:\|\ \ \ 
+        highlight PyIndent ctermfg=gray guifg=gray
+        let w:python_indent_match_id = matchadd('PyIndent', '^\(    \)\+', 10)
+    endfunction
+    autocmd FileType python call s:SetupPythonHighlight()
+augroup END
 
