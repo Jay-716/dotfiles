@@ -37,8 +37,8 @@
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
-    	"format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d %a %H:%M}",
+        "format": "{:%Y-%m-%d %a %H:%M}",
+        "format-alt": "{:%H:%M}",
         "tooltip": false
      },
     "cpu": {
