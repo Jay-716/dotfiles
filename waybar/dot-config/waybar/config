@@ -43,7 +43,7 @@
      },
     "cpu": {
         "interval": 5,
-        "format": "{max_frequency}GHz {load}"
+        "format": "{max_frequency:.2f}GHz {load:.2f}"
      },
      "memory": {
         "interval": 10,
