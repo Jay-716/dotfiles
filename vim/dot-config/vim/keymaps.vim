@@ -1,6 +1,6 @@
 " Fix alt key in terminal
 " See: https://github.com/vim/vim/issues/2588#issuecomment-697959290
-if !has('nvim') && !has('gui_running')
+if !has('nvim') && !has('gui_running') && &term == 'alacritty'
   set ttimeoutlen=5
   " set up Meta to work properly for most keys in terminal vim
   " NOTE: these do not work: <m-space>,<m->>,<m-[>,<m-]>,<m-{up,down,left,right}>
