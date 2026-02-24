@@ -136,4 +136,5 @@ nnoremap [g :cprevious<CR>
 nnoremap ]g :cnext<CR>
 
 command Todo edit ~/Desktop/todo
+nnoremap <leader>td :Todo<CR>
 
