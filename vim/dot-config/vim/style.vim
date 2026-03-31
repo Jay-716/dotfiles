@@ -53,3 +53,15 @@ augroup PythonSettings
     autocmd FileType python call s:SetupPythonHighlight()
 augroup END
 
+augroup HighlightLeadingTabs
+    autocmd!
+
+    if has("patch-9.2.0088")
+        set lcs+=tab:\ \ ,leadtab:>\ 
+    else
+        set lcs+=tab:\ \ 
+    endif
+    highlight LeadingTab ctermfg=gray guifg=gray
+    autocmd WinEnter,BufEnter * let w:leading_tab_match_id = matchadd('LeadingTab', '^\t\+')
+augroup END
+
