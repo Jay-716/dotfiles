@@ -1,4 +1,4 @@
-swayimg.toggle_fullscreen()
+swayimg.fullscreen = true
 
 swayimg.viewer.on_key("q", swayimg.exit)
 swayimg.viewer.set_window_background(0xAA000000)
