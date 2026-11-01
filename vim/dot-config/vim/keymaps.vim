@@ -53,6 +53,12 @@ nnoremap <silent><M-l> :bnext<cr>
 nnoremap <silent><M-Left> :bprevious<cr>
 nnoremap <silent><M-Right> :bnext<cr>
 
+" Alt + Shift + h/l or left/right to switch tabs
+nnoremap <silent><M-S-h> :tabprevious<cr>
+nnoremap <silent><M-S-l> :tabnext<cr>
+nnoremap <silent><M-S-Left> :tabprevious<cr>
+nnoremap <silent><M-S-Right> :tabnext<cr>
+
 " Map the hard to get ^ and $
 nnoremap _ ^
 nnoremap + $
