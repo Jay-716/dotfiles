@@ -75,7 +75,7 @@ input type:touchpad {
 }
 
 input type:pointer {
-    pointer_accel -0.15
+    pointer_accel -0.23
     accel_profile adaptive
 }
 
